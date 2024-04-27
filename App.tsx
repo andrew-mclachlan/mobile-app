@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import "react-native-gesture-handler";
+import { ModalDialog } from "./Modal";
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -12,7 +13,7 @@ const Tab = createBottomTabNavigator();
 const HomeScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home!</Text>
+      <ModalDialog />
     </View>
   );
 };
@@ -46,7 +47,7 @@ const DrawerNavigator = () => {
 export default function App() {
   return (
     <NavigationContainer>
-      <DrawerNavigator/>
+      <DrawerNavigator />
     </NavigationContainer>
   );
 }
