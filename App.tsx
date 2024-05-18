@@ -18,6 +18,14 @@ const HomeScreen = () => {
   );
 };
 
+const SettingsScreen = () => {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+};
+
 const TabScreen = () => {
   return (
     <Tab.Navigator>
@@ -27,10 +35,10 @@ const TabScreen = () => {
   );
 };
 
-const SettingsScreen = () => {
+const AnotherScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
+      <Text>Another Screen!</Text>
     </View>
   );
 };
@@ -39,7 +47,7 @@ const DrawerNavigator = () => {
   return (
     <Drawer.Navigator>
       <Drawer.Screen name="Home" component={TabScreen} />
-      <Drawer.Screen name="Settings" component={TabScreen} />
+      <Drawer.Screen name="AnotherScreen" component={AnotherScreen} />
     </Drawer.Navigator>
   );
 };

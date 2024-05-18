@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import { StyleSheet, Text, Pressable, View } from "react-native";
+import Modal from "react-native-modal";
 
 const styles = StyleSheet.create({
   centeredView: {
@@ -9,7 +10,6 @@ const styles = StyleSheet.create({
     marginTop: 22,
   },
   modalView: {
-    margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
@@ -47,25 +47,31 @@ const styles = StyleSheet.create({
 
 export const ModalDialog = () => {
   const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View style={styles.centeredView}>
       <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
+        isVisible={modalVisible}
+        onBackdropPress={() => setModalVisible(false)}
+        style={{ justifyContent: "flex-end", margin: 0 }}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+        <View style={styles.modalView}>
+          <Text style={styles.modalText}>Modal Title</Text>
+          <Text>This is the modal content.</Text>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>OK</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={styles.textStyle}>Cancel</Text>
             </Pressable>
           </View>
         </View>
